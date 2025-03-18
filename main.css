@@ -1,21 +1,24 @@
-
 body {
-    background-image: url('bg.png');
-    background-size: auto;
+    background-image: url('HAMIL.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     color: rgb(0, 0, 0);
+    
 }
 
 .navbar {
-    background-color: #fdffed;
+    background-color: #FFFFFF;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    z-index: 1000; 
+    width: 100%;
 }
 
 .navbar a {
@@ -25,11 +28,13 @@ body {
     color: rgb(0, 0, 0);
     text-decoration: none;
     padding: 14px 20px;
+    border-radius: 100;
 }
 
 .navbar a:hover {
     background-color: #ddd;
     color: black;
+    border-radius: 30;
 }
 
 
@@ -41,7 +46,7 @@ body {
 
 .navbar .btn-login {
     margin-left: auto; 
-    background-color: #e4a7b5;
+    background-color: #f0dee2;
     border: 1px solid white;
     border-radius: 60px;
     height : 10px;
@@ -50,7 +55,7 @@ body {
 
 
 .navbar .btn-signup {
-    background-color: #73c7c7;
+    background-color: #f0dee2;
     margin-left: 10px;
     color: rgb(0, 0, 0);
     border-radius: 60px;
@@ -60,44 +65,45 @@ body {
 
 
 .navbar .btn-login:hover {
-    background-color: rgb(216, 183, 183);
+    background-color: #d8b7b7;
     color: #000000;
 }
 
 .navbar .btn-signup:hover {
-    background-color: #5ea2a2;
+    background-color: #d8b7b7;
 }
 
 h1 {
+    padding-top: 60px;
     font-size: 45px;
-    color: #474d90;
+    color: #FFFFFF;
     margin-bottom: 5px;
 }
 
 
 h2 {
     font-size: 35px;
-    color: #474d90;
+    color: #FFFFFF;
     font-weight: normal;
     margin-top: 0;
 }
 
 p {
     font-size: 20px;
-    color: #000000;
+    color: #FFFFFF;
     margin-bottom: 15px;
 }
 
 
 p b {
     font-size: 25px;
-    color: #222;
+    color: #FFFFFF;
 }
 
 .hero {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     gap: 40px;
     padding-bottom: 60px;
 }
@@ -109,18 +115,6 @@ p b {
     text-align: left;
     margin-left : 80px;
 }
-
-.gbBG {
-    max-width: 45%;
-    padding: 20px;
-    margin-top: 50px;
-}
-
-.gbBG img {
-    width: 65%;
-    height: auto;
-}
-
 
 .hero-bottom {
     text-align: center;
@@ -164,4 +158,9 @@ button {
 
 #download:hover {
     background-color: #6a8b8b;
+}
+
+.nav-link.active {
+    color: #f0bfca;
+    font-weight: bold;
 }

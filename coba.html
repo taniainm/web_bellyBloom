@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilih Minggu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="weekInput">Masukkan Week (1-4):</label>
+        <input type="number" id="weekInput" min="1" max="4">
+        <button onclick="tampilkanData()">Pilih</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function tampilkanData() {
+            // Ambil nilai dari input
+            let weekNumber = document.getElementById("weekInput").value;
+            
+            // Data untuk setiap minggu
+            let weekData = {
+                1: "Week 1: Pertumbuhan awal janin.",
+                2: "Week 2: Pembentukan embrio.",
+                3: "Week 3: Organ mulai berkembang.",
+                4: "Week 4: Mulai terlihat detak jantung."
+            };
+
+            // Tampilkan hasil sesuai input
+            document.getElementById("result").innerText = weekData[weekNumber] || "Data tidak ditemukan.";
+        }
+    </script>
+</body>
+</html>
