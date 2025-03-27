@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/detail_artikel.css">
+    <title>Detail Artikel</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="main.html" class="logo">
+            <img src="/assets/img/logo.png" alt="Logo Website">
+        </a>
+        <div class="menu">
+            <a href="#search"><i class="fas fa-search"></i></a>
+            <a href="#beranda">Beranda</a>
+            <a href="landing.html">Fitur</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="#kontak">Tentang Kami</a>
+            <a href="#profil" class="fas fa-user-circle"></a>
+        </div>
+    </div>
+
+    <div class="article-detail" id="article-detail">
+        <!-- Detail artikel akan diisi oleh JavaScript -->
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const articleTitle = params.get("title");
+
+            const articles = [
+                {
+                    title: "14 Gerakan yang Tidak Boleh Dilakukan Ibu Hamil",
+                    image: "/assets/img/image.jpg",
+                    summary: "Olah raga memang penting untuk kesehatan ibu hamil. Namun, ada aturan yang perlu diperhatikan...",
+                    content: "Konten lengkap artikel 1...",
+                    date: "Mar 12, 2025"
+                },
+                {
+                    title: "Fase Perkembangan Janin, Kapan Embrio...",
+                    image: "/assets/img/image.jpg",
+                    summary: "",
+                    content: "Konten lengkap artikel 2...",
+                    date: "Mar 12, 2025"
+                },
+                // Tambahkan artikel lainnya di sini
+            ];
+
+            const article = articles.find(a => a.title === articleTitle);
+            const articleDetail = document.getElementById("article-detail");
+
+            if (article) {
+                articleDetail.innerHTML = `
+                    <h1>${article.title}</h1>
+                    <img src="${article.image}" alt="Artikel">
+                    <p>${article.date}</p>
+                    <p>${article.content}</p>
+                `;
+            } else {
+                articleDetail.innerHTML = `<p>Artikel tidak ditemukan.</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

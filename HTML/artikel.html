@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/artikel.css">
+    <title>Artikel</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="main.html" class="logo">
+            <img src="/assets/img/logo.png" alt="Logo Website">
+        </a>
+        <div class="menu">
+            <a href="#search"><i class="fas fa-search"></i></a>
+            <a href="#beranda">Beranda</a>
+            <a href="landing.html">Fitur</a>
+            <a href="#layanan" class="nav-link active">Artikel</a>
+            <a href="#kontak">Tentang Kami</a>
+            <a href="#profil" class="fas fa-user-circle"></a>
+        </div>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-box" class="search-box" placeholder="Cari artikel...">
+        <i class="fas fa-search search-icon"></i>
+    </div>
+
+    <div class="main-content">
+        <div class="main-article" id="main-article"></div> <!-- Ini akan diisi oleh JavaScript -->
+    
+        <div class="sidebar" id="sidebar"></div> <!-- Ini akan diisi oleh JavaScript -->
+    </div>
+    
+    <h2>Artikel Lainnya</h2>
+    <div class="article-container" id="article-container"></div> <!-- Ini akan diisi oleh JavaScript -->
+    
+
+    <script src="/JS/artikel.js"></script>
+</body>
+</html>
