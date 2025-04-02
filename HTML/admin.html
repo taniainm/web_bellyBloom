@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <link rel="stylesheet" href="/CSS/dashboardAdm.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script defer src="/JS/dashboardAdm.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#fetal-growth">Perkembangan Janin</a></li>
+            <li><a href="#skincare">Skincare Aman</a></li>
+            <li><a href="#articles">Artikel</a></li>
+            <li><a href="#community">Komunitas</a></li>
+            <li><a href="#users">Pengguna</a></li>
+            <li><a href="#reports">Laporan</a></li>
+            <li><a href="#settings">Pengaturan</a></li>
+        </ul>
+    </div>
+    
+    <section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="/assets/img/fitskin.jpg">
+			</a>
+		</nav>
+
+    <div class="main-content">
+        <header>
+            <h1>Dashboard Admin</h1>
+        </header>
+        
+        <section class="stats">
+            <div class="card">
+                <h3>Pengguna</h3>
+                <p id="userCount">120</p>
+            </div>
+            <div class="card">
+                <h3>Artikel</h3>
+                <p id="articleCount">45</p>
+            </div>
+            <div class="card">
+                <h3>Komunitas</h3>
+                <p id="communityPosts">78</p>
+            </div>
+            <div class="card">
+                <h3>Laporan</h3>
+                <p id="reportCount">5</p>
+            </div>
+        </section>
+        
+        <div class="table-container">
+            <h2>Data Pengguna</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Peran</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="userTable">
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>1</td>
+                        <td>
+                            <button onclick="editUser(1)">Edit</button>
+                            <button onclick="deleteUser(1)">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="form-container">
+            <h2>Tambah/Edit Pengguna</h2>
+            <input type="hidden" id="userId">
+            <input type="text" id="userName" placeholder="Nama">
+            <input type="email" id="userEmail" placeholder="Email">
+            <input type="peran" id="userRole" placeholder="Peran(0=User 1=Admin)">
+            <button onclick="saveUser()">Simpan</button>
+        </div>
+    </div>
+</body>
+</html>

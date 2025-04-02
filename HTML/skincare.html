@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Skincare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/CSS/skincare.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="main.html" class="logo">
+            <img src="/assets/img/logo.png" alt="Logo Website">
+        </a>
+        <div class="menu">
+            <a href="#search"><i class="fas fa-search"></i></a>
+            <a href="#beranda">Beranda</a>
+            <a href="landing.html" class="nav-link active">Fitur</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="#kontak">Tentang Kami</a>
+            <a href="#profil" class="fas fa-user-circle"></a>
+        </div>
+    </div>
+    <header>
+        <h1>Rekomendasi Skincare</h1>
+        <div class="search-filter">
+            <input type="text" id="search" icon = 'bx bx-search' placeholder="Cari skincare..." onkeyup="searchSkincare()">
+            <span class="filter-text" id="filter-icon" onclick="toggleFilterBox()"><i class='bx bx-filter'></i></span>
+        </div>
+        <div class="filter-box" id="filter-box">
+            <h3>Filter</h3>
+            <div class="filter-item">
+                <label for="price-range">Harga (Rp)</label>
+                <input type="number" id="price-input" placeholder="Masukkan harga maksimal" oninput="updatePriceLabel()" />
+                <span id="price-label">Rp0</span>
+            </div>
+            <div class="filter-item">
+                <label>Jenis Kulit</label>
+                <div class="skin-type-options">
+                    <button data-skin-type="Dry" onclick="filterSkinType('Dry')">Kulit Kering</button>
+                    <button data-skin-type="Oily" onclick="filterSkinType('Oily')">Kulit Berminyak</button>
+                    <button data-skin-type="Combination" onclick="filterSkinType('Combination')">Kulit Kombinasi</button>
+                    <button data-skin-type="Sensitive" onclick="filterSkinType('Sensitive')">Kulit Sensitif</button>
+                </div>
+            <button onclick="applyFilters()">Terapkan Filter</button>
+        </div>
+    </header>
+
+    <h1 class="judul"> Skincare Untukmu</h1>
+    <main>
+        <div id="skincare-list" class="skincare-list"></div>
+
+        <div class="pagination">
+            <button onclick="changePage(-1)">Previous</button>
+            <span id="page-number">1</span>
+            <button onclick="changePage(1)">Next</button>
+        </div>
+    </main>
+
+    <script src="/Js/skincare.js"></script>
+</body>
+</html>
