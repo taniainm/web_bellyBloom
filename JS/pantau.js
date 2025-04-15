@@ -7,16 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const deskripsiContainer = document.createElement("p"); // Untuk deskripsi
     document.body.appendChild(deskripsiContainer);
 
-    // Data ilustrasi dan deskripsi (Simulasi database)
-    const perkembanganData = {
-        1: { img: "/assets/img/w1.jpg", desc: "Minggu pertama kehamilan dihitung sejak HPHT." },
-        2: { img: "/assets/img/w2.jpg", desc: "Di minggu ini, ovulasi dan pembuahan terjadi." },
-        3: { img: "/assets/img/w3.jpg", desc: "Sel telur mulai membelah menjadi embrio." },
-        13: { img: "/assets/img/w13.jpg", desc: "Janin mulai mengembangkan sidik jari." }, 
-        // ... Tambahkan data lainnya hingga minggu 40
-        40: { img: "/assets/img/w40.jpg", desc: "Persiapan persalinan, bayi siap dilahirkan." }
-    };
-
     document.querySelectorAll(".week").forEach(button => {
         button.addEventListener("click", function() {
             const minggu = parseInt(this.dataset.minggu);
@@ -24,13 +14,43 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    
+    const dataMinggu = [
+        {
+            minggu: 1,
+            gambar: "/assets/img/w1.jpg",
+            berat: "0-0 Gram",
+            panjang: "0-0 Cm",
+            detak: "0-0 Per detik",
+            deskripsi: "Tahukah Mums? Sebenarnya belum ada janin di dalam kandungan Mums pada minggu ini. Karena sulitnya mengetahui waktu yang pasti kapan pembuahan (sel telur bertemu dengan sperma) terjadi, biasanya dokter atau petugas medis akan menghitung due date dari hari pertama periode menstruasi terakhir. Ya, demi kepentingan perhitungan due date, seorang wanita telah dinyatakan 'hamil' bahkan sebelum pembuahan terjadi. Jadi, perhitungan kehamilan dimulai sejak minggu awal menstruasi. Sedangkan, umur janin yang nantinya akan Mums kandung adalah usia kehamilan dikurangi 2 minggu. Mums yang sedang merencanakan kehamilan sebaiknya secara rutin melakukan perhitungan HPHT (Hari Pertama Haid Terakhir) setelah berhubungan. Metode menghitung HPHT ini bisa mempermudah perhitungan usia kehamilan."
+        },
+        {
+            minggu: 2,
+            gambar: "/assets/img/w2.jpg",
+            berat: "1-2 Gram",
+            panjang: "0.1-0.2 Cm",
+            detak: "100-120 Per detik",
+            deskripsi: "Apa yang terjadi di Minggu 2... (deskripsi lengkap)."
+        },
+        {
+            minggu: 3,
+            gambar: "/assets/img/w3.jpg",
+            berat: "2-4 Gram",
+            panjang: "0.3-0.5 Cm",
+            detak: "120-140 Per detik",
+            deskripsi: "Apa yang terjadi di Minggu 3... (deskripsi lengkap)."
+        },
+    ];
+
     // Fungsi untuk memperbarui tampilan berdasarkan minggu
     function updateContent(week) {
-        if (week >= 1 && week <= 40) {
+        const data = dataMinggu.find(item => item.minggu === week);
+    
+        if (data) {
             judulPerkembangan.textContent = `Perkembangan Janin Minggu ke-${week}`;
-            ilustrasi.src = perkembanganData[week]?.img || "/assets/img/default.jpg";
-            deskripsiContainer.textContent = perkembanganData[week]?.desc || "Deskripsi tidak tersedia.";
-
+            ilustrasi.src = data.gambar;
+            deskripsiContent.textContent = data.deskripsi;
+    
             updateActiveButton(week);
             scrollToButton(week);
         } else {
@@ -90,32 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateMinggu(week);
     });
 
-    const dataMinggu = [
-        {
-            minggu: 1,
-            gambar: "/assets/img/w1.jpg",
-            berat: "0-0 Gram",
-            panjang: "0-0 Cm",
-            detak: "0-0 Per detik",
-            deskripsi: "Apa yang terjadi di Minggu 1... (deskripsi lengkap)."
-        },
-        {
-            minggu: 2,
-            gambar: "/assets/img/w2.jpg",
-            berat: "1-2 Gram",
-            panjang: "0.1-0.2 Cm",
-            detak: "100-120 Per detik",
-            deskripsi: "Apa yang terjadi di Minggu 2... (deskripsi lengkap)."
-        },
-        {
-            minggu: 3,
-            gambar: "/assets/img/w3.jpg",
-            berat: "2-4 Gram",
-            panjang: "0.3-0.5 Cm",
-            detak: "120-140 Per detik",
-            deskripsi: "Apa yang terjadi di Minggu 3... (deskripsi lengkap)."
-        },
-    ];
 
     function updateMinggu(minggu) {
         // Cari data sesuai minggu yang dipilih

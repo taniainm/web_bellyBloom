@@ -7,19 +7,73 @@ const articles = [
     },
     {
         title: "Fase Perkembangan Janin, Kapan Embrio...",
-        image: "/assets/img/image.jpg",
+        image: "/assets/img/image2.jpg",
         summary: "",
         date: "Mar 12, 2025"
     },
     {
         title: "4 Jenis Persalinan yang Perlu Bumil Tahu",
-        image: "/assets/img/image.jpg",
+        image: "/assets/img/image1.jpg",
         summary: "",
         date: "Mar 12, 2025"
     },
     {
         title: "Ketahui 18 Fakta Bayi Baru Lahir",
-        image: "/assets/img/image.jpg",
+        image: "/assets/img/image3.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Melahirkan Lebih Tenang dengan Gentle Birth",
+        image: "/assets/img/image1.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Apakah Ibu Hamil Boleh Memakai Skincare?",
+        image: "/assets/img/image4.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Ketahui 18 Fakta Bayi Baru Lahir",
+        image: "/assets/img/image3.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Melahirkan Lebih Tenang dengan Gentle Birth",
+        image: "/assets/img/image1.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Apakah Ibu Hamil Boleh Memakai Skincare?",
+        image: "/assets/img/image4.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Ketahui 18 Fakta Bayi Baru Lahir",
+        image: "/assets/img/image1.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Melahirkan Lebih Tenang dengan Gentle Birth",
+        image: "/assets/img/image3.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Apakah Ibu Hamil Boleh Memakai Skincare?",
+        image: "/assets/img/image1.jpg",
+        summary: "",
+        date: "Mar 12, 2025"
+    },
+    {
+        title: "Ketahui 18 Fakta Bayi Baru Lahir",
+        image: "/assets/img/image2.jpg",
         summary: "",
         date: "Mar 12, 2025"
     },
@@ -31,13 +85,13 @@ const articles = [
     },
     {
         title: "Apakah Ibu Hamil Boleh Memakai Skincare?",
-        image: "/assets/img/image.jpg",
+        image: "/assets/img/image4.jpg",
         summary: "",
         date: "Mar 12, 2025"
     },
     {
         title: "11 Makanan Penambah Nafsu Makan Ibu Hamil",
-        image: "/assets/img/image.jpg",
+        image: "/assets/img/image1.jpg",
         summary: "",
         date: "Mar 12, 2025"
     }
@@ -86,40 +140,64 @@ function loadArticles() {
     articleContainer.innerHTML = articlesHTML;
 }
 
-// Fungsi pencarian artikel berdasarkan judul
 function searchArticles() {
     let keyword = document.getElementById("search-box").value.toLowerCase();
-    let articleContainer = document.getElementById("article-container");
-
-    if (!articleContainer) {
-        console.error("Elemen #article-container tidak ditemukan!");
-        return;
-    }
 
     // Filter artikel berdasarkan judul
-    let filteredArticles = articles.filter(article => 
+    let filteredArticles = articles.filter(article =>
         article.title.toLowerCase().includes(keyword)
     );
 
-    // Kosongkan kontainer sebelum menampilkan hasil
-    articleContainer.innerHTML = "";
+    // Kosongkan semua kontainer sebelum menampilkan hasil
+    const mainArticle = document.getElementById("main-article");
+    const sidebar = document.getElementById("sidebar");
+    const articleContainer = document.getElementById("article-container");
 
-    if (filteredArticles.length === 0) {
-        articleContainer.innerHTML = "<p>Tidak ada artikel yang ditemukan.</p>";
+    if (!mainArticle || !sidebar || !articleContainer) {
+        console.error("Elemen kontainer tidak ditemukan!");
         return;
     }
 
-    // Tampilkan hasil pencarian
-    filteredArticles.forEach(article => {
-        let articleHTML = `
-            <div class="article-card">
-                <img src="${article.image}" alt="Gambar Artikel">
-                <p>${article.date}</p>
-                <h3>${article.title}</h3>
-            </div>
+    mainArticle.innerHTML = "";
+    sidebar.innerHTML = "";
+    articleContainer.innerHTML = "";
+
+    if (filteredArticles.length === 0) {
+        mainArticle.innerHTML = "<p>Tidak ada artikel yang ditemukan.</p>";
+        return;
+    }
+
+    // Tampilkan artikel utama (artikel pertama dari hasil pencarian)
+    if (filteredArticles[0]) {
+        mainArticle.innerHTML = `
+            <a href="detail_artikel.html?title=${encodeURIComponent(filteredArticles[0].title)}">
+                <img src="${filteredArticles[0].image}" alt="Artikel utama">
+                <h2>${filteredArticles[0].title}</h2>
+                <p>${filteredArticles[0].summary}</p>
+            </a>
         `;
-        articleContainer.innerHTML += articleHTML;
-    });
+    }
+
+    // Tampilkan artikel di sidebar (artikel kedua hingga keempat dari hasil pencarian)
+    for (let i = 1; i < Math.min(4, filteredArticles.length); i++) {
+        sidebar.innerHTML += `
+            <a href="detail_artikel.html?title=${encodeURIComponent(filteredArticles[i].title)}" class="article-card">
+                <img src="${filteredArticles[i].image}" alt="Artikel samping">
+                <p>${filteredArticles[i].title}</p>
+            </a>
+        `;
+    }
+
+    // Tampilkan artikel lainnya (artikel kelima dan seterusnya dari hasil pencarian)
+    for (let i = 4; i < filteredArticles.length; i++) {
+        articleContainer.innerHTML += `
+            <a href="detail_artikel.html?title=${encodeURIComponent(filteredArticles[i].title)}" class="article-card">
+                <img src="${filteredArticles[i].image}" alt="Artikel">
+                <p>${filteredArticles[i].date}</p>
+                <h3>${filteredArticles[i].title}</h3>
+            </a>
+        `;
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {

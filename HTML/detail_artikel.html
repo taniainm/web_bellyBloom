@@ -26,43 +26,46 @@
         <!-- Detail artikel akan diisi oleh JavaScript -->
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const params = new URLSearchParams(window.location.search);
-            const articleTitle = params.get("title");
 
-            const articles = [
-                {
-                    title: "14 Gerakan yang Tidak Boleh Dilakukan Ibu Hamil",
-                    image: "/assets/img/image.jpg",
-                    summary: "Olah raga memang penting untuk kesehatan ibu hamil. Namun, ada aturan yang perlu diperhatikan...",
-                    content: "Konten lengkap artikel 1...",
-                    date: "Mar 12, 2025"
-                },
-                {
-                    title: "Fase Perkembangan Janin, Kapan Embrio...",
-                    image: "/assets/img/image.jpg",
-                    summary: "",
-                    content: "Konten lengkap artikel 2...",
-                    date: "Mar 12, 2025"
-                },
-                // Tambahkan artikel lainnya di sini
-            ];
+    <footer class="footer" id="kontak">
+        <div class="footer-container">
+            <!-- Bagian Logo dan Tagline -->
+            <div class="footer-section logo">
+                <img src="/assets/img/logoBB.png" alt="Belly Bloom Logo">
+                <p class="tagline">Sehat dan Cantik Saat Hamil</p>
+            </div>
+    
+            <!-- Bagian Kontak -->
+            <div class="footer-section kontak">
+                <h3>Kontak</h3>
+                <p>Email: support@bellybloom.com</p>
+                <p>Telepon: +62 812 3456 7890</p>
+                <p>Alamat: Jl. Mawar No. 123, Surabaya</p>
+            </div>
+    
+            <!-- Bagian Aplikasi -->
+            <div class="footer-section aplikasi">
+                <h3>Unduh Aplikasi</h3>
+                <a href="#"><img src="/assets/img/playstore.png" alt="Google Play"></a>
+                <a href="#"><img src="/assets/img/appstore.png" alt="App Store"></a>
+            </div>
+    
+            <!-- Bagian Sosial Media -->
+            <div class="footer-section sosial">
+                <h3>Ikuti Kami</h3>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Belly Bloom. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-            const article = articles.find(a => a.title === articleTitle);
-            const articleDetail = document.getElementById("article-detail");
-
-            if (article) {
-                articleDetail.innerHTML = `
-                    <h1>${article.title}</h1>
-                    <img src="${article.image}" alt="Artikel">
-                    <p>${article.date}</p>
-                    <p>${article.content}</p>
-                `;
-            } else {
-                articleDetail.innerHTML = `<p>Artikel tidak ditemukan.</p>`;
-            }
-        });
-    </script>
+    <script src="/JS/detail_artikel.js"></script>
 </body>
 </html>

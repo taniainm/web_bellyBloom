@@ -1,15 +1,76 @@
 const skincareData = [
-    { name: "Skincare A", price: 100, skinType: "Dry", description: "Merawat kulit kering dengan kelembapan optimal.", image: "/Assets/img/skincare.jpg" },
-    { name: "Skincare B", price: 150, skinType: "Oily", description: "Mengurangi minyak berlebih pada kulit.", image: "/Assets/img/skincare1.jpg" },
-    { name: "Skincare C", price: 120, skinType: "Combination", description: "Menyeimbangkan kulit kombinasi.", image: "/Assets/img/skincare2.jpg" },
-    { name: "Skincare D", price: 90, skinType: "Sensitive", description: "Menghidrasi kulit sensitif dengan lembut.", image: "/Assets/img/skincare.jpg" },
-    { name: "Skincare E", price: 200, skinType: "Oily", description: "Membantu mengontrol minyak berlebih.", image: "/Assets/img/skincare1.jpg" },
-    { name: "Skincare F", price: 80, skinType: "Dry", description: "Memberikan kelembapan bagi kulit kering.", image: "/Assets/img/skincare2.jpg" },
-    { name: "Skincare G", price: 110, skinType: "Combination", description: "Menjaga keseimbangan kelembapan kulit.", image: "/Assets/img/skincare.jpg" },
-    { name: "Skincare H", price: 170, skinType: "Sensitive", description: "Bebas bahan kimia keras, aman untuk kulit sensitif.", image: "/Assets/img/skincare1.jpg" },
-    { name: "Skincare I", price: 50, skinType: "Oily", description: "Menyegarkan kulit berminyak tanpa membuat kering.", image: "/Assets/img/skincare2.jpg" },
-    { name: "Skincare J", price: 130, skinType: "Dry", description: "Menutrisi kulit kering dengan formula khusus.", image: "/Assets/img/skincare.jpg" },
+    {
+        name: "Avoskin Perfect Hydrating Treatment Essence",
+        price: 120000,
+        skinType: "Dry",
+        description: "Membantu menghidrasi kulit, menjaga kelembapan, sekaligus menenangkan iritasi.",
+        image: "/Assets/img/skincare.jpg"
+    },
+    {
+        name: "The Originote Niacinamide Brightening Serum",
+        price: 75000,
+        skinType: "Oily",
+        description: "Mencerahkan kulit dan mengontrol minyak berlebih dengan kandungan Niacinamide dan Zinc.",
+        image: "/Assets/img/skincare1.jpg"
+    },
+    {
+        name: "Somethinc Ceramic Skin Saviour Moisturizer Gel",
+        price: 98000,
+        skinType: "Sensitive",
+        description: "Pelembap ringan yang memperkuat skin barrier dan cocok untuk kulit sensitif.",
+        image: "/Assets/img/skincare2.jpg"
+    },
+    {
+        name: "Skintific 5X Ceramide Barrier Repair Moisturizer",
+        price: 115000,
+        skinType: "Combination",
+        description: "Menghidrasi dan memperkuat lapisan pelindung kulit dengan 5 jenis Ceramide.",
+        image: "/Assets/img/skincare1.jpg"
+    },
+    {
+        name: "Wardah UV Shield Essential Sunscreen Gel SPF 30",
+        price: 37000,
+        skinType: "All",
+        description: "Melindungi kulit dari sinar UVA & UVB serta polusi, dengan tekstur ringan.",
+        image: "/Assets/img/skincare2.jpg"
+    },
+    {
+        name: "Azarine Hydrasoothe Sunscreen Gel SPF 45",
+        price: 65000,
+        skinType: "Oily",
+        description: "Sunscreen ringan dan menyegarkan, cocok untuk kulit berminyak dan berjerawat.",
+        image: "/Assets/img/skincare.jpg"
+    },
+    {
+        name: "Emina Bright Stuff Face Wash",
+        price: 18000,
+        skinType: "Normal",
+        description: "Membersihkan wajah sambil mencerahkan dengan ekstrak buah dan vitamin B3.",
+        image: "/Assets/img/skincare2.jpg"
+    },
+    {
+        name: "Scarlett Whitening Brightly Ever After Serum",
+        price: 75000,
+        skinType: "Dry",
+        description: "Serum pencerah dengan Glutathione dan Vitamin C untuk meratakan warna kulit.",
+        image: "/Assets/img/skincare1.jpg"
+    },
+    {
+        name: "Nivea MicellAIR Skin Breathe Micellar Water",
+        price: 25000,
+        skinType: "Sensitive",
+        description: "Membersihkan makeup dan kotoran tanpa membuat kulit kering atau iritasi.",
+        image: "/Assets/img/skincare.jpg"
+    },
+    {
+        name: "Wardah Lightening Day Cream",
+        price: 50000,
+        skinType: "Oily",
+        description: "Dengan Advanced Niacinamide dan SPF 30, membantu mencerahkan dan melindungi kulit.",
+        image: "/Assets/img/skincare1.jpg"
+    }
 ];
+
 
 let currentPage = 1;
 const itemsPerPage = 8;

@@ -1,27 +1,110 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+html{
+    scroll-behavior: smooth;
 }
 
-body {
+body, html {
     margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+/* Tata letak utama */
+body {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar */
 .sidebar {
     width: 250px;
-    background: #e1b9b9c4;
+    background-color: #cd9b9bc4;
     color: white;
     padding: 20px;
-    height: 100vh;  /* Pastikan sidebar mengisi seluruh tinggi layar */
-    position: fixed;  /* Agar sidebar tidak ikut bergeser */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; 
+    height: 100%;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(0); /* Default tampil */
 }
+
+.sidebar.hidden {
+    transform: translateX(-100%); /* Sembunyikan sidebar */
+}
+
+/* Konten utama */
+#content {
+    margin-left: 290px;
+    flex: 1;
+    transition: margin-left 0.3s ease;
+}
+
+#content.full-width {
+    margin-left: 0; /* Jika sidebar disembunyikan */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #cd9b9b;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    height: 50px;
+    z-index: 1000;
+}
+
+.navbar .form-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .form-input input {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.navbar .form-input button {
+    background-color: #a9b4c1;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Tombol toggle sidebar */
+.toggle-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+	border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.toggle-btn:hover {
+    background-color: #555;
+}
+
 .sidebar h2 {
     text-align: center;
 }
@@ -40,161 +123,62 @@ body {
 }
 .sidebar ul li a:hover {
     background: #575757;
+    border-radius: 20px;
 }
-.main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background: #f4f4f4;
-    margin-left: 0px;
+
+.dibuka{
+    background-color: #575757; 
+    color: white; 
+    width: 90%;
+    border-radius: 20px;
 }
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+  }
+
 header {
     background: white;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+/* Styling untuk container kartu */
 .stats {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
-}
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    flex: 1;
-    text-align: center;
-}
-.card h3 {
-    margin: 0 0 10px;
-}
-.table-container {
-    margin-top: 20px;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-table, th, td {
-    border: 1px solid #ddd;
-}
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-.form-container {
-    margin-top: 20px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-input, button {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-}
-
-#content {
-    margin-left: 250px; /* Memberikan ruang agar konten tidak tertutup sidebar*/
-    width: calc(100% - 250px);  /* Mengurangi lebar untuk menghindari tumpang tindih */
-    transition: .3s ease;
-}
-
-#content nav {
-	height: 56px;
-	background: #e1b9b9c4;
-	padding: 0 24px;
-	display: flex;
-	align-items: center;
-	grid-gap: 24px;
-	font-family: var(--lato);
-	top: 0;
-	left: 0;
-	z-index: 1000;
-}
-#content nav::before {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	bottom: -40px;
-	left: 0;
-	border-radius: 50%;
-	box-shadow: -20px -20px 0 var(--light);
-}
-#content nav a {
-	color: var(--dark);
-}
-
-#content nav .nav-link {
-	font-size: 16px;
-	transition: .3s ease;
-}
-
-#content nav form {
-	max-width: 400px;
-	width: 100%;
-	margin-right: auto;
-}
-
-#content nav form .form-input {
-	display: flex;
-	align-items: center;
-	height: 36px;
-}
-#content nav form .form-input input {
-	flex-grow: 1;
-	padding: 0 16px;
-	height: 100%;
-	border: none;
-	background: rgba(128, 128, 128, 0.541);
-	border-radius: 36px 0 0 36px;
-	outline: none;
-	width: 100%;
-	color: white;
-}
-#content nav form .form-input button {
-	width: 36px;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: darkgray;
-	color: white;
+	display: grid;
+	grid-template-columns: repeat(2,1fr); /* Dua kolom */
+	gap: 20px; /* Jarak antar kartu */
+	margin: 20px;
+  }
+  
+  /* Styling untuk kartu */
+  .card {
+	background-color: #e0cece; /* Warna latar belakang kartu */
+	border: 1px solid #ddd; /* Border abu-abu */
+	border-radius: 10px; /* Sudut melengkung */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+	padding: 20px; /* Ruang di dalam kartu */
+	text-align: center; /* Teks di tengah */
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi hover */
+  }
+  
+  /* Hover efek untuk kartu */
+  .card:hover {
+	transform: translateY(-5px); /* Kartu naik sedikit */
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Bayangan lebih besar */
+  }
+  
+  /* Judul kartu */
+  .card h3 {
 	font-size: 18px;
-	border: none;
-	outline: none;
-	border-radius: 0 36px 36px 0;
-	cursor: pointer;
-}
-#content nav .notification {
-	font-size: 20px;
-	position: relative;
-}
-#content nav .notification .num {
-	position: absolute;
-	top: -6px;
-	right: -6px;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	border: 2px solid var(--light);
-	background: var(--red);
-	color: var(--light);
-	font-weight: 700;
-	font-size: 12px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-#content nav .profile img {
-	width: 36px;
-	height: 36px;
-	object-fit: cover;
-	border-radius: 50%;
-}
+	color: #333; /* Warna teks */
+	margin-bottom: 10px;
+  }
+  
+  /* Deskripsi singkat */
+  .card p {
+	font-size: 24px; /* Ukuran angka */
+	font-weight: bold;
+	color: #000000f6; /* Warna biru */
+	margin: 0;
+  }
